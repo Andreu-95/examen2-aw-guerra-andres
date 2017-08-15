@@ -1,6 +1,9 @@
 /**
  * Created by poli_ on 14/8/2017.
  */
+declare let require;
+declare let module;
+
 var Passwords = require('machinepack-passwords');
 
 module.exports = {

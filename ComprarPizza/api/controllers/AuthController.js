@@ -1,6 +1,3 @@
-/**
- * Created by poli_ on 14/8/2017.
- */
 var Passwords = require('machinepack-passwords');
 module.exports = {
     Login: function (req, res) {

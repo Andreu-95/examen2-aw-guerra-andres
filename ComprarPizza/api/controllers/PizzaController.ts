@@ -1,6 +1,9 @@
 /**
  * Created by poli_ on 14/8/2017.
  */
+declare let Pizza;
+declare let Ingrediente;
+
 module.exports = {
 
   CrearPizza: function (req, res) {
