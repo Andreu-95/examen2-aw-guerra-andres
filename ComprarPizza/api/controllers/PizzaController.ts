@@ -11,8 +11,6 @@ module.exports = {
     if (req.method == 'POST') {
       var parametros = req.allParams();
 
-      console.log(parametros);
-
       if (parametros.nombre && parametros.tipo && parametros.precio && parametros.masa && parametros.principal
         && parametros.adicional && parametros.id_user) {
 
@@ -35,15 +33,18 @@ module.exports = {
           }
 
           var ingredienteMasa = {
-            nombre: parametros.masa
+            nombre: parametros.masa,
+            id_pizza: pizzaCreada.id
           };
 
           var ingredientePrincipal = {
-            nombre: parametros.principal
+            nombre: parametros.principal,
+            id_pizza: pizzaCreada.id
           };
 
           var ingredienteAdicional = {
-            nombre: parametros.adicional
+            nombre: parametros.adicional,
+            id_pizza: pizzaCreada.id
           };
 
           Ingrediente.create(ingredienteMasa).exec(function (err, masaCreada) {

@@ -50,7 +50,8 @@ module.exports.policies = {
 	// }
 
   RutasController: {
-    crearPizza: 'autenticado'
+    crearPizza: 'autenticado',
+    listarPizzas: 'autenticado'
   }
 
 };

@@ -1,0 +1,19 @@
+<h2>Mis Pizzas</h2>
+<br>
+<ul>
+  <% for(var i=0; i<pizzas.length; i++) { %>
+    <li> <%= pizzas[i].nombre %>
+      <ul>
+        <li><%= pizzas[i].tipo %></li>
+        <li><%= pizzas[i].precio %></li>
+        <li> Ingredientes
+          <ul>
+            <% for(var j=0; j<pizzas[i].ingredientes.length; j++) { %>
+              <li><%= pizzas[i].ingredientes[j].nombre %></li>
+            <% } %>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  <% } %>
+</ul>

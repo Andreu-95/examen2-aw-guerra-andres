@@ -37,7 +37,8 @@ module.exports.routes = {
   'get /': 'RutasController.home',
   'get /Error': 'RutasController.error',
   'get /Login': 'RutasController.login',
-  'get /CrearPizza': 'RutasController.crearPizza'
+  'get /CrearPizza': 'RutasController.crearPizza',
+  'get /ListarPizzas': 'RutasController.listarPizzas'
 
   /***************************************************************************
   *                                                                          *
