@@ -32,9 +32,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  'get /Inicio': 'RutasController.home',
+  'get /CrearUsuario': 'RutasController.crearUsuario',
+  'get /': 'RutasController.home',
+  'get /Error': 'RutasController.error',
+  'get /Login': 'RutasController.login',
+  'get /CrearPizza': 'RutasController.crearPizza'
 
   /***************************************************************************
   *                                                                          *
