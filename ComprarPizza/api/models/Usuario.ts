@@ -32,7 +32,8 @@ module.exports = {
 
     password: {
       type: 'string',
-      defaultsTo: '123456'
+      defaultsTo: '123456',
+      required: true
     },
 
     pizzas: {

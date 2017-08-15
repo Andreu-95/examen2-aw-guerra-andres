@@ -5,12 +5,8 @@ module.exports = {
     attributes: {
         nombre: {
             type: 'string',
-            enum: ['Masa Gruesa', 'Masa Delgada', 'Queso', 'Salsa', 'Jamón', 'Pepperoni', 'Tocino'],
+            enum: ['Masa Gruesa', 'Masa Delgada', 'Jamón', 'Pepperoni', 'Tocino'],
             unique: true,
-            required: true
-        },
-        precio: {
-            type: 'float',
             required: true
         },
         id_pizza: {
