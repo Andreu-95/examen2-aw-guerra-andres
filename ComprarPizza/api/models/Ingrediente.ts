@@ -6,8 +6,7 @@ module.exports = {
   attributes: {
     nombre: {
       type: 'string',
-      enum: ['Masa Gruesa', 'Masa Delgada', 'Jamón', 'Pepperoni', 'Tocino'],
-      unique: true,
+      enum: ['Masa Gruesa', 'Masa Fina', 'Jamón', 'Pepperoni', 'Tocino'],
       required: true
     },
 

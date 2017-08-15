@@ -15,7 +15,7 @@
   </div>
   <div class="form-group">
     <label for="precio">Correo</label>
-    <input type="text" class="form-control" id="precio" placeholder="11.00" name="precio">
+    <input type="text" class="form-control" id="precio" value="9" name="precio" readonly>
   </div>
   <div class="form-group">
     <input type="hidden" class="form-control" value="<%= id_user %>" name="id_user">
@@ -88,37 +88,56 @@
 
     $('input[type=radio][name=masa]').change(function() {
 
-      var masaPrecio = 0;
-      if (this.value == 'fina') {
-        masaPrecio = 3;
-      } else if (this.value == 'gruesa') {
-        masaPrecio = 4;
-      }
+      var precioFinal = obtenerValores();
+      $("#precio").attr("value", precioFinal);
 
-      var selecPrincipal = $('input[type=radio][name=principal]').filter(':checked').val();
-      var principalPrecio = 0;
-      if (selecPrincipal == "Jamón") {
-          principalPrecio = 3;
-      } else if (selecPrincipal == "Pepperoni") {
-          principalPrecio = 4;
-      } else {
-          principalPrecio = 5;
-      }
+    });
 
-      var selecAdicional = $('input[type=radio][name=adicional]').filter(':checked').val();
-      var adicionalPrecio = 0;
-      if (selecAdicional == "Jamón") {
-        adicionalPrecio = 3;
-      } else if (selecAdicional == "Pepperoni") {
-        adicionalPrecio = 4;
-      } else {
-        adicionalPrecio = 5;
-      }
+    $('input[type=radio][name=principal]').change(function() {
 
-      var precioFinal = masaPrecio + principalPrecio + adicionalPrecio;
+      var precioFinal = obtenerValores();
+      $("#precio").attr("value", precioFinal);
 
+    });
+
+    $('input[type=radio][name=adicional]').change(function() {
+
+      var precioFinal = obtenerValores();
       $("#precio").attr("value", precioFinal);
 
     });
   });
+
+  function obtenerValores () {
+
+    var selecMasa = $('input[type=radio][name=masa]').filter(':checked').val();
+    var masaPrecio = 0;
+    if (selecMasa == 'fina') {
+      masaPrecio = 3;
+    } else {
+      masaPrecio = 4;
+    }
+
+    var selecPrincipal = $('input[type=radio][name=principal]').filter(':checked').val();
+    var principalPrecio = 0;
+    if (selecPrincipal == "Jamón") {
+      principalPrecio = 3;
+    } else if (selecPrincipal == "Pepperoni") {
+      principalPrecio = 4;
+    } else {
+      principalPrecio = 5;
+    }
+
+    var selecAdicional = $('input[type=radio][name=adicional]').filter(':checked').val();
+    var adicionalPrecio = 0;
+    if (selecAdicional == "Jamón") {
+      adicionalPrecio = 3;
+    } else if (selecAdicional == "Pepperoni") {
+      adicionalPrecio = 4;
+    } else {
+      adicionalPrecio = 5;
+    }
+
+    return masaPrecio + principalPrecio + adicionalPrecio;
+  }
 </script>
