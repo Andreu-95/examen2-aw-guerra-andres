@@ -5,5 +5,11 @@ module.exports = function (req, res, next) {
     if (req.session.credencialSegura) {
         return next();
     }
-    return res.forbidden('Usted no puede entrar a esta vista');
+    return res.view('vistas/error', {
+        error: {
+            descripcion: "Usted no puede entrar a esta Vista",
+            rawError: "Ruta equivocada",
+            url: "/Inicio"
+        }
+    });
 };
