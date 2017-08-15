@@ -15,7 +15,9 @@ module.exports = {
   },
 
   crearPizza: function (req, res) {
-    return res.view('vistas/crearPizza');
+    return res.view('vistas/crearPizza', {
+      id_user: req.session.credencialSegura.id
+    });
   },
 
   error: function (req, res) {

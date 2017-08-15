@@ -73,14 +73,6 @@ module.exports = {
     }
   },
 
-  TieneSesion: function (req, res) {
-    if (req.session.credencialSegura) {
-      return res.ok("Si tiene la credencial segura");
-    } else {
-      return res.forbidden();
-    }
-  },
-
   Logout: function (req, res) {
     req.session.credencialSegura = undefined;
     return res.view('vistas/login');

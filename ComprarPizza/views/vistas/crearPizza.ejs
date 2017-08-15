@@ -1,0 +1,84 @@
+<h2>Crear Usuario</h2>
+
+<form action="/Pizza/CrearPizza" method="post">
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el Nombre de la Pizza" name="nombre">
+  </div>
+  <div class="form-group">
+    <label for="tipo">Tipo</label>
+    <select class="custom-select" name="tipo" style="width: 100%;">
+      <option value="Familiar">Familiar</option>
+      <option value="Mediana">Mediana</option>
+      <option value="Personal">Personal</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="precio">Correo</label>
+    <input type="text" class="form-control" id="precio" placeholder="0.00" name="precio" disabled>
+  </div>
+  <div class="form-group">
+    <input type="hidden" class="form-control" value="<%= id_user %>" name="id_user">
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h4>Tipo de Masa</h4>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="masa" id="fina" value="Masa Fina" checked>
+          Masa Fina
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="masa" id="gruesa" value="Masa Gruesa">
+          Masa Gruesa
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h4>Ingrediente Principal</h4>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="principal" id="jamonP" value="Jamón" checked>
+          Jamón
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="principal" id="pepperoniP" value="Pepperoni">
+          Pepperoni
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="principal" id="tocinoP" value="Tocino">
+          Tocino
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h4>Ingrediente Adicional</h4>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="adicional" id="jamonA" value="Jamón" checked>
+          Jamón
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="adicional" id="pepperoniA" value="Pepperoni">
+          Pepperoni
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="adicional" id="tocinoA" value="Tocino">
+          Tocino
+        </label>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success">Crear Pizza</button>
+  <button type="reset" class="btn btn-danger">Reiniciar Campos</button>
+</form>
