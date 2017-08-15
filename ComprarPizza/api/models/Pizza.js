@@ -1,14 +1,29 @@
-/**
- * Pizza.js
- *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
- */
-
 module.exports = {
-
-  attributes: {
-
-  }
+    attributes: {
+        nombre: {
+            type: 'string',
+            required: true
+        },
+        tipo: {
+            type: 'string',
+            enum: ['Familiar', 'Mediana', 'Personal'],
+            required: true
+        },
+        precio: {
+            type: 'float',
+            required: true
+        },
+        ingredientes: {
+            collection: 'ingrediente',
+            via: 'id_pizza'
+        },
+        id_user: {
+            model: 'usuario'
+        }
+    },
+    afterDestroy: function (destroyedRecords, cb) {
+        Ingrediente.destroy({
+            id_pizza: _.pluck(destroyedRecords, 'id')
+        }).exec(cb);
+    }
 };
-

@@ -1,14 +1,20 @@
 /**
- * Ingrediente.js
- *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ * Created by poli_ on 14/8/2017.
  */
-
 module.exports = {
-
-  attributes: {
-
-  }
+    attributes: {
+        nombre: {
+            type: 'string',
+            enum: ['Masa Gruesa', 'Masa Delgada', 'Queso', 'Salsa', 'Jamón', 'Pepperoni', 'Tocino'],
+            unique: true,
+            required: true
+        },
+        precio: {
+            type: 'float',
+            required: true
+        },
+        id_pizza: {
+            model: 'pizza'
+        }
+    }
 };
-

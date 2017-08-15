@@ -20,6 +20,10 @@ module.exports = {
         password: {
             type: 'string',
             defaultsTo: '123456'
+        },
+        pizzas: {
+            collection: 'pizza',
+            via: 'id_user'
         }
     },
     beforeCreate: function (values, cb) {
@@ -52,5 +56,10 @@ module.exports = {
         else {
             cb();
         }
+    },
+    afterDestroy: function (destroyedRecords, cb) {
+        Pizza.destroy({
+            id_user: _.pluck(destroyedRecords, 'id')
+        }).exec(cb);
     }
 };

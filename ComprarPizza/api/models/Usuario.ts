@@ -3,6 +3,8 @@
  */
 declare let module;
 declare let require;
+declare let Pizza;
+declare let _;
 
 var Passwords = require('machinepack-passwords');
 
@@ -14,20 +16,28 @@ module.exports = {
       minLength: 5,
       required: true
     },
+
     apellidos: {
       type: 'string',
       minLength: 5,
       required: true
     },
+
     correo: {
       type: 'string',
       email: true,
       required: true,
       unique: true
     },
+
     password: {
       type: 'string',
       defaultsTo: '123456'
+    },
+
+    pizzas: {
+      collection: 'pizza',
+      via: 'id_user'
     }
   },
 
@@ -61,6 +71,12 @@ module.exports = {
     } else {
       cb();
     }
+  },
+
+  afterDestroy: function (destroyedRecords, cb) {
+    Pizza.destroy({
+      id_user: _.pluck(destroyedRecords, 'id')
+    }).exec(cb)
   }
 
 };
